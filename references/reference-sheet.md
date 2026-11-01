@@ -1,50 +1,72 @@
 # Character Reference Sheet
 
-Use this workflow for a professional character model sheet, turnaround, asset sheet, or multi-view presentation that must preserve one character's identity. Read [visual-system.md](visual-system.md) for style priority and parameter rules.
+Use this workflow for a model sheet, turnaround, asset sheet, or multi-view presentation of one character. Read [visual-system.md](visual-system.md) for style priority and parameters.
 
-## Default layout
+## Direct generation from the supplied image
 
-Use a clean 16:9 landscape canvas, pure white background, and two clearly separated sections. Reserve approximately 55% of the width for costume turnarounds on the left and 45% for portraits on the right. Separate portrait panels with narrow white gutters.
+- Produce one English prompt for one complete sheet directly from the supplied portrait, extended image, or full-body image. Do not require a separate full-body generation, approval image, or per-view generation and compositing stage. Use an existing full-body reference if supplied, but do not make it a prerequisite.
+- Extract the character's identity, visible head-neck-shoulder relationships, upper-body shape, costume construction and palette. Preserve the visible build and requested stylization rather than imposing a universal head count, tall silhouette, adult age or slender body.
+- Complete unseen anatomy and costume conservatively, consistent with visible anatomy, established age, build and function. State briefly after the prompt what was inferred; do not claim exact recovery of hidden proportions. If exact measurements are requested but unsupported, explain the limitation without inventing them or automatically switching workflows.
+- Separate anatomy from costume: a high belt, armor edge, high-waisted garment, robe hem or long image canvas is not a measurement of anatomical waist position, leg length or body height. Use this clarification in the finished prompt only when relevant to the reference.
+- Keep the same underlying anatomy across views, with a neutral balanced stance and consistent weak perspective. Normalize the source pose and photographic foreshortening without redesigning body shape. Align corresponding neck-base, shoulder, waist, hip and knee levels, and the supporting feet or equivalent contact points.
 
-### Left section: neck-down costume turnaround
+## Layout and body occupancy
 
-- Arrange front, exact 90-degree side, and back full-body costume views side by side.
-- Begin each figure at a clean horizontal crop through the neck, showing the collar and a short neck section with white space above. Confine all heads, hair and hair ornaments to the portrait section so the shoulders and costume back remain unobstructed. This is a presentation crop, not an anatomical cutaway.
-- Describe this positively in the prompt: "three neck-down costume views, each beginning at a clean neck-level crop, with collars and the complete costume back clearly visible; all hairstyles appear only in the portrait panels". Do not put head or hair in `--no`, because it applies to the entire image.
-- Show the complete torso, arms, hands, lower garments, hems and footwear. Use the same figure height, body proportions and scale, with feet on one horizontal baseline.
-- Preserve the character's garment lengths, silhouette and relationship to footwear. Make costume boundaries readable without redesigning hems, trains or shoes to fit the presentation.
-- Use relaxed arms slightly separated from the torso, empty hands and five naturally formed fingers per hand.
-- Keep collars, shoulder layers, closures, waist wrapping, embroidery, sleeve construction and garment overlaps consistent across angles. Preserve any user-requested removal of weapons or accessories rather than restoring them from an identity reference.
+Default to a pure white 16:9 landscape canvas: left 55% for costume views, right 45% for portraits. Percentages guide layout; they are not exact placement guarantees.
 
-### Right section: 2x2 portrait grid
+### Left: three neck-to-foot costume views
 
-- Top left: frontal head-and-shoulders portrait.
-- Top right: approximately 45-degree head-and-shoulders portrait.
-- Bottom left: exact 90-degree side profile showing the nose, jaw, ear and hairstyle.
-- Bottom right: closer frontal facial portrait, differentiated from the top-left head-and-shoulders view.
-- Fit each view to its purpose while preserving the hairstyle silhouette and identity-defining accessories. Adapt framing to the character's actual design rather than imposing a fixed face-to-chest ratio or a rule for cropping long hair.
-- Maintain identical face shape, features, skin tone, hairstyle, hair color and accessories. Use a neutral expression by default, or preserve an explicitly requested expression.
+- Arrange front, exact 90-degree side and back views side by side.
+- Place each within an equally sized complete-figure presentation area that reserves the space its omitted head would occupy. Leave that upper space white, with a clean neck-level crop below it. The neck-to-foot figure retains its scale and position within the complete figure. Fit views by uniform scaling and spacing, not stretching the body upward into the omitted head space or narrowing it to fit columns.
+- Show the collar or equivalent upper costume boundary, a short neck section, torso, arms, lower garments and footwear where applicable. Preserve garment length, trains and the design's relationship to feet; do not shorten clothing just to expose shoes.
+- For these costume views only, hide hair and hair ornaments, including hanging locks, so shoulders and costume backs remain readable. Preserve capes, collars and all clothing layers. This is local display visibility, not a hairstyle change or anatomical cutaway.
+- Default to relaxed shoulders, arms slightly separated from the torso and naturally formed empty hands. Adapt limb count, digits, stance and contact points to established anatomy, including nonhuman characters. User-requested poses and accessories override defaults.
+- Repeat the same garment overlaps, structural seams, fastenings and accessory attachment points across angles. Honor explicit removals instead of restoring objects from the reference.
 
-## Default finish: painted game-character concept art
+### Right: four enlarged portraits
 
-- Use high-end semi-realistic game character concept art, digitally painted with convincing three-dimensional form and a refined CG-like finish. The volume comes from painted light and shadow, not a mandatory photorealistic 3D rendering pipeline.
-- Model facial planes clearly around the eyes, nose, cheeks and jaw, with softly blended natural skin tones and restrained variation. Keep eyes, lips and facial identity precise without waxy smoothing or doll-like facial design.
-- Organize hair into distinct flowing locks with broad controlled highlights and selective fine strands rather than uniform strand-by-strand detail.
-- Use readable form, controlled painted edges and visible brush texture where appropriate. Adapt folds, surface detail and decorative density to the actual materials and costume design; rigid armor, soft cloth and richly ornamented clothing need different treatment.
-- Differentiate only materials actually present: restrained silk sheen, cloth thickness, leather roughness or controlled metal reflections. Preserve the character's own palette and costume; a style or layout reference does not supply unrelated character traits, costume elements or accessories.
-- Concentrate crisp detail on the face, hair silhouette, collar and costume construction; soften less important painted transitions. Use neutral slightly cool studio illumination with clear light-and-shadow separation, restrained highlights and subtle floor contact shadows. Keep light consistent across panels rather than carrying over a dramatic portrait's rim light.
-- Explicitly chosen media such as watercolor, ink wash or pure 3DCG override this default finish while retaining the requested layout. Do not append skin-shader, PBR or subsurface-scattering language to the default painted finish.
+- Use a precise 2x2 grid with narrow white gutters: frontal head-and-shoulders, 45-degree head-and-shoulders, exact 90-degree side profile, and closer frontal facial portrait.
+- Preserve intrinsic head, neck and shoulder relationships; only display magnification changes. Keep face identity, features, skin tone, hairstyle and identifying accessories consistent, framed appropriately for each view.
+- Use a composed neutral expression unless the user specifies another. Adapt framing to the design rather than prescribing a fixed face-to-chest ratio or a universal long-hair crop.
+- Portraits are intentionally enlarged. Do not compare their on-page pixel size with the left bodies to calculate head count, and do not require matching on-page head sizes across sections.
 
-Example finish clause, adapted to the actual character:
+## Dynamic character description
 
-> high-end semi-realistic game character concept art, digitally painted with convincing three-dimensional form, clearly modeled facial planes and softly blended skin tones, distinct hair locks with controlled highlights, readable material structure and painterly surface detail adapted to the costume, selectively sharp edges, neutral slightly cool studio illumination
+Describe only the particular reference's actual or established features:
 
-## Identity and output
+1. Face and visible anatomy: age cues, face shape, eyes, skin tone and distinctive features.
+2. Hair or equivalent silhouette: color, structure, arrangement and identifying ornaments, where present.
+3. Costume: major layers, neckline, shoulder volume, waist construction, lower garments, fastenings and accessories.
+4. Palette and materials actually present, with matching ornament placement and structural logic across angles.
 
-- Use the character image for face, hairstyle, costume and colors. If a separate reference specifies layout or finish, state its role and transfer only those qualities.
-- When lower garments, shoes or back construction are undefined, infer them conservatively from established materials and function, repeat them consistently across views, and briefly state which details were inferred.
-- Distinguish confirmed design from inferred details. Reuse a generated sheet as the design authority only when the user adopts it; displaying a result for review does not approve its additions. Carry confirmed details forward and keep unsupported additions provisional.
-- Treat feedback on an individual result as a correction for that result. Do not turn its costume, expression, accessory or cropping fixes into universal defaults without an explicit request to standardize them.
-- Include only the specified character. Put text, labels, logos and watermarks in `--no`; keep people, heads and hair out of it. Add concrete exclusions requested by the user when needed.
+Do not transfer example-specific traits or materials to other characters. A separate style or layout reference supplies only its assigned role. Complete hidden backs and footwear with necessary functional structure rather than new decorative focal points; generated additions remain inferred until adopted.
 
-Write one coherent English prompt unless the user requests another language or segmented prompts. Put the layout before long character and finish descriptions so the neck-down crop and portrait grid remain prominent. Default parameters: `--ar 16:9 --raw --s 150`. Preserve user-specified values; for explicitly selected alternative media, follow the shared parameter rules. View counts and width percentages guide composition but do not guarantee exact placement.
+## Default finish
+
+Use high-end semi-realistic game character concept art, digitally painted with convincing three-dimensional form and a refined CG-like finish. Use clearly modeled facial planes and softly blended natural tones, distinct hair locks with controlled highlights where appropriate, readable material structure, painterly surface detail and selectively sharp edges. Differentiate only materials present, with restrained material-specific highlights. Use neutral slightly cool studio illumination, coherent light-and-shadow separation and subtle ground contact shadows.
+
+This is a painted finish with dimensional modeling, not a requirement for photorealistic 3D rendering or skin shaders. Do not append PBR or subsurface-scattering terms to this default. Explicit media such as ink wash, watercolor or pure 3DCG replace it according to the shared style rules. Preserve character proportions while changing presentation lighting or finish.
+
+## Assembly and output
+
+Use this order: reference identity and visible proportion anchor; conservative completion and any relevant costume/anatomy distinction; overall canvas; left occupancy and views; right portraits; character-specific face and costume; finish; parameters. Write the occupancy and intrinsic-proportion controls in the final prompt, not just in analysis. Avoid repeating anatomical assurances or lengthy decorative lists.
+
+The following is an assembly scaffold, not a prompt to paste unchanged. Replace bracketed fields from the current reference, omit inapplicable features, and deliver a complete copy-ready prompt without placeholders:
+
+```text
+A professional character reference sheet of [character] in the supplied [portrait / extended image / full-body reference]. Preserve [identity, visible head-neck-shoulder relationships, build, costume and palette]. Complete unseen anatomy conservatively, consistent with the visible figure and established character design.
+
+Pure white background, 16:9 landscape canvas: left 55% costume views, right 45% portraits.
+
+LEFT: front, exact 90-degree side and back neck-to-foot costume views. Place each in an equally sized complete-figure presentation area, leaving white space for the omitted head above the neck crop. Retain the body's scale within the complete character. Fit views by uniform scaling and spacing, preserving width-to-height relationships. Hide hair and hair ornaments only in these costume views; preserve clothing layers. [Character-appropriate neutral stance and complete anatomy.] Consistent weak perspective, corresponding anatomical levels and one shared contact baseline.
+
+RIGHT: a 2x2 portrait grid, frontal, 45-degree, exact side profile and closer frontal facial portrait. Preserve the same intrinsic head, neck and shoulder relationships; only display magnification changes. Frame identifying features appropriately.
+
+[Reference-specific face, hair, costume construction, palette and materials. Conservative completion of hidden design details, consistently repeated across views.]
+
+[Selected finish and lighting.] --ar 16:9 --raw --s 150 --no text, labels, logos, watermarks
+```
+
+Default parameters: `--ar 16:9 --raw --s 150`. User choices override them; explicitly selected alternative media follow shared parameter rules. Keep people, heads, hair and necessary costume elements out of global `--no`. Add only relevant concrete exclusions requested by the user or likely to prevent a material failure.
+
+After the prompt, briefly identify inferred anatomy or costume and how to attach the supplied reference. Do not add a full-body approval checkpoint, fixed measurement claims or promises of exact identity, proportion and layout fidelity. Corrections to an individual result remain local unless the user requests a general rule.
