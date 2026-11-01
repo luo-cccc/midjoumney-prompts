@@ -15,15 +15,15 @@ Use this workflow when the user supplies a character concept and wants a Midjour
 - Use a centered half-body portrait from head to waist, shown from the front or a slight three-quarter angle.
 - Show the complete head, hairstyle, accessories, both shoulders, and upper-body clothing.
 - Use a simple background that separates the character without competing for attention.
-- For the default CG medium only, apply the character finish in [visual-system.md](visual-system.md): premium semi-realistic animated-film 3DCG, idealized anime-influenced facial structure, BJD-inspired facial precision paired with natural skin, groomed strand hair, and physically believable costume materials. Use cinematic lighting motivated by the portrait's setting.
-- Keep living skin and grounded anatomy; avoid plastic or waxy rendering, physical doll joints, flat cartoon features, excessive smoothing, and low-detail game models. Follow the shared style rules when the user chooses a different medium.
+- Default to high-quality semi-realistic anime painting with a refined painterly finish, expressive but accurately shaped eyes, layered painted hair detail, believable fabric texture, and cinematic lighting. Describe brushwork, painted light and material texture rather than 3D rendering or skin-shader terminology.
+- Keep mature facial proportions and grounded anatomy; avoid plastic or waxy skin, doll-like features, excessive smoothing, flat lighting, and generic low-detail game-model aesthetics. Use the CG character finish in [visual-system.md](visual-system.md) only when selected by the user or inherited from an explicitly chosen style.
 - Do not turn the portrait into a full-body image unless the user asks for one.
 
 ## Output
 
 Write one coherent English prompt covering subject, identity, face, hair, costume, accessories, pose, framing, background, style, lighting, and camera treatment. Prevent the failures listed above by describing the wanted result, and put only exclusions that materially reduce likely failures in `--no`. Do not overstuff the prompt with synonymous quality words.
 
-Default CG parameters:
+Default anime-painting parameters:
 
 `--ar 3:4 --raw --s 150`
 

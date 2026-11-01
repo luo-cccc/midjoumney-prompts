@@ -1,39 +1,50 @@
 # Character Reference Sheet
 
-Use this workflow for a professional character model sheet, turnaround, asset sheet, or multi-view presentation that must preserve one character's identity.
+Use this workflow for a professional character model sheet, turnaround, asset sheet, or multi-view presentation that must preserve one character's identity. Read [visual-system.md](visual-system.md) for style priority and parameter rules.
 
 ## Default layout
 
-Create a clean 16:9 landscape character reference sheet on a pure white background with two clearly separated sections.
+Use a clean 16:9 landscape canvas, pure white background, and two clearly separated sections. Reserve approximately 55% of the width for costume turnarounds on the left and 45% for portraits on the right. Separate portrait panels with narrow white gutters.
 
-### Left section: headless full-body turnaround
+### Left section: neck-down costume turnaround
 
-- Place front, exact 90-degree side, and back full-body views side by side in roughly 40-45% of the frame.
-- Crop every view cleanly at the neck. Do not show the head or hair. Keep the neck, torso, arms, hands, legs, and footwear complete.
-- Describe the crop positively, for example "each full-body view cropped cleanly at the neck". Keep head and hair out of `--no`; it applies to the whole image, and the right section needs both.
-- Present the three bodies at the same height, scale, proportions, and shoulder width on one shared horizontal baseline.
-- Use relaxed arms at the sides with anatomically accurate hands, five natural fingers per hand, and no fused or missing fingers.
-- Keep the silhouette, collar, shoulder line, closures, belt, pockets, sleeves, trousers, skirt, or other costume structures consistent across angles.
+- Arrange front, exact 90-degree side, and back full-body costume views side by side.
+- Begin each figure at a clean horizontal crop through the neck, showing the collar and a short neck section with white space above. Confine all heads, hair and hair ornaments to the portrait section so the shoulders and costume back remain unobstructed. This is a presentation crop, not an anatomical cutaway.
+- Describe this positively in the prompt: "three neck-down costume views, each beginning at a clean neck-level crop, with collars and the complete costume back clearly visible; all hairstyles appear only in the portrait panels". Do not put head or hair in `--no`, because it applies to the entire image.
+- Show the complete torso, arms, hands, lower garments, hems and footwear. Use the same figure height, body proportions and scale, with feet on one horizontal baseline.
+- Preserve the character's garment lengths, silhouette and relationship to footwear. Make costume boundaries readable without redesigning hems, trains or shoes to fit the presentation.
+- Use relaxed arms slightly separated from the torso, empty hands and five naturally formed fingers per hand.
+- Keep collars, shoulder layers, closures, waist wrapping, embroidery, sleeve construction and garment overlaps consistent across angles. Preserve any user-requested removal of weapons or accessories rather than restoring them from an identity reference.
 
-### Right section: head and shoulders quadrants
+### Right section: 2x2 portrait grid
 
-- Use roughly 55-60% of the frame for a neat 2x2 grid.
-- Top left: front head-and-shoulders view.
-- Top right: approximately 45-degree head-and-shoulders view.
-- Bottom left: exact 90-degree side portrait showing the nose, jaw, ear, and hairstyle profile.
-- Bottom right: closer front facial portrait emphasizing features, eyes, and hair accessories.
-- Keep the same face identity, face shape, features, skin tone, expression, hairstyle, hair color, and accessories in every view.
-- Use a calm neutral expression and a naturally closed mouth.
+- Top left: frontal head-and-shoulders portrait.
+- Top right: approximately 45-degree head-and-shoulders portrait.
+- Bottom left: exact 90-degree side profile showing the nose, jaw, ear and hairstyle.
+- Bottom right: closer frontal facial portrait, differentiated from the top-left head-and-shoulders view.
+- Fit each view to its purpose while preserving the hairstyle silhouette and identity-defining accessories. Adapt framing to the character's actual design rather than imposing a fixed face-to-chest ratio or a rule for cropping long hair.
+- Maintain identical face shape, features, skin tone, hairstyle, hair color and accessories. Use a neutral expression by default, or preserve an explicitly requested expression.
 
-## Consistency and finish
+## Default finish: painted game-character concept art
 
-- Keep the same body proportions, costume design, colors, and materials throughout.
-- Make visible material distinctions concrete, such as wool, knit, metal, leather, or glossy fabric.
-- For the default CG medium only, apply the character finish in [visual-system.md](visual-system.md): idealized semi-realistic animated-film 3DCG, refined facial sculpting with natural skin, groomed hair and physically believable costume materials. The BJD influence is facial design, not physical doll construction.
-- Use even studio lighting and subtle floor contact shadows to show the design clearly. Keep this presentation lighting out of later narrative scenes. An explicitly chosen medium such as watercolor or ink wash replaces the CG finish while retaining the sheet's layout and identity consistency.
-- If a half-body design leaves lower garments or footwear undefined, derive them conservatively from its role, colors and materials, keep them identical across views, and briefly tell the user which details were inferred.
-- Include only the specified character, shown alone and empty-handed. Put text, labels, logos, and watermarks in `--no`. Keep people out of `--no`, because it would also push against the character.
+- Use high-end semi-realistic game character concept art, digitally painted with convincing three-dimensional form and a refined CG-like finish. The volume comes from painted light and shadow, not a mandatory photorealistic 3D rendering pipeline.
+- Model facial planes clearly around the eyes, nose, cheeks and jaw, with softly blended natural skin tones and restrained variation. Keep eyes, lips and facial identity precise without waxy smoothing or doll-like facial design.
+- Organize hair into distinct flowing locks with broad controlled highlights and selective fine strands rather than uniform strand-by-strand detail.
+- Use readable form, controlled painted edges and visible brush texture where appropriate. Adapt folds, surface detail and decorative density to the actual materials and costume design; rigid armor, soft cloth and richly ornamented clothing need different treatment.
+- Differentiate only materials actually present: restrained silk sheen, cloth thickness, leather roughness or controlled metal reflections. Preserve the character's own palette and costume; a style or layout reference does not supply unrelated character traits, costume elements or accessories.
+- Concentrate crisp detail on the face, hair silhouette, collar and costume construction; soften less important painted transitions. Use neutral slightly cool studio illumination with clear light-and-shadow separation, restrained highlights and subtle floor contact shadows. Keep light consistent across panels rather than carrying over a dramatic portrait's rim light.
+- Explicitly chosen media such as watercolor, ink wash or pure 3DCG override this default finish while retaining the requested layout. Do not append skin-shader, PBR or subsurface-scattering language to the default painted finish.
 
-## Output
+Example finish clause, adapted to the actual character:
 
-Write a single English Midjourney prompt unless the user requests a different language or segmented prompts. Default CG parameters are `--ar 16:9 --raw --s 150`; follow the shared parameter rules for other media and user choices. Preserve the user's desired aspect ratio. Use layout percentages and view counts only as practical composition controls, not as image-generation guarantees.
+> high-end semi-realistic game character concept art, digitally painted with convincing three-dimensional form, clearly modeled facial planes and softly blended skin tones, distinct hair locks with controlled highlights, readable material structure and painterly surface detail adapted to the costume, selectively sharp edges, neutral slightly cool studio illumination
+
+## Identity and output
+
+- Use the character image for face, hairstyle, costume and colors. If a separate reference specifies layout or finish, state its role and transfer only those qualities.
+- When lower garments, shoes or back construction are undefined, infer them conservatively from established materials and function, repeat them consistently across views, and briefly state which details were inferred.
+- Distinguish confirmed design from inferred details. Reuse a generated sheet as the design authority only when the user adopts it; displaying a result for review does not approve its additions. Carry confirmed details forward and keep unsupported additions provisional.
+- Treat feedback on an individual result as a correction for that result. Do not turn its costume, expression, accessory or cropping fixes into universal defaults without an explicit request to standardize them.
+- Include only the specified character. Put text, labels, logos and watermarks in `--no`; keep people, heads and hair out of it. Add concrete exclusions requested by the user when needed.
+
+Write one coherent English prompt unless the user requests another language or segmented prompts. Put the layout before long character and finish descriptions so the neck-down crop and portrait grid remain prominent. Default parameters: `--ar 16:9 --raw --s 150`. Preserve user-specified values; for explicitly selected alternative media, follow the shared parameter rules. View counts and width percentages guide composition but do not guarantee exact placement.

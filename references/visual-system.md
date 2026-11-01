@@ -5,17 +5,17 @@ Read this file with the selected workflow for character design, reference sheets
 ## Style selection and parameters
 
 - The current request's explicit medium, visual style, and parameters take priority. Otherwise carry forward a style explicitly chosen by the user for the relevant character or world. Accepting a workflow default or attaching an image alone does not select its medium for a new image.
-- If no style was chosen, use the unified 3DCG system below. A request for game-CG, animated-film CG, or this visual system also uses it unless the user specifies a different interpretation.
-- A painterly or anime-illustration request uses painting language. A named medium such as ink wash or watercolor uses that medium. These replace the default CG finish for the requested subjects; do not append BJD, PBR, subsurface-scattering, or rendered-environment wording to a wholly painted image.
+- If no style was chosen, use the workflow's default: character concepts use semi-realistic anime painting; reference sheets use painted semi-realistic game-character concept art with CG-like volume as detailed in [reference-sheet.md](reference-sheet.md); new scenes use the unified 3DCG system below. Accepting a workflow default does not change another workflow's default. An explicit request to match an image's finish does override it. An explicit request for pure 3D rendering, animated-film CG or the unified CG system selects CG; the term game-character concept art alone does not imply photorealistic 3D rendering.
+- A painterly or anime-illustration request uses painting language. A named medium such as ink wash or watercolor uses that medium. These replace the default CG finish for the requested subjects; do not append PBR, subsurface-scattering, or rendered-environment wording to a wholly painted image.
 - Use one coherent medium unless the user explicitly asks for a blend. Within the default CG medium, idealized characters and more realistic environments are intentional and compatible; they do not require identical stylization.
-- Default CG starting presets: character portraits `--ar 3:4 --raw --s 150`; reference sheets and scenes `--ar 16:9 --raw --s 150`. User-specified values override these. These are comparison presets, not requirements or guarantees of CG rendering.
-- For an alternative medium, keep confirmed `--raw` and `--s` values associated with that medium. If none exist, add neither. Aspect ratio comes from the current workflow or current request, not a previous portrait.
+- Default starting presets: anime-painted character portraits `--ar 3:4 --raw --s 150`; painted game-character reference sheets and CG scenes `--ar 16:9 --raw --s 150`. Explicitly requested CG portraits also start with `--ar 3:4 --raw --s 150`. User-specified values override these; the presets do not guarantee a medium or rendering method.
+- For a non-default medium, keep confirmed `--raw` and `--s` values associated with that medium. If none exist, add neither; default anime-painted portraits and painted game-character sheets retain their presets above. Aspect ratio comes from the current workflow or current request, not a previous portrait.
 - For revisions, keep the confirmed style unless asked to change it. Outpainting never becomes a style conversion merely because these defaults changed.
 
 ## Characters: idealized semi-realistic 3DCG
 
-- Use premium animated-feature-film character design: anatomically grounded three-dimensional structure, idealized anime-influenced facial proportions, carefully sculpted contours, and refined high-end BJD-inspired facial design.
-- BJD inspiration applies only to facial precision, silhouette, and idealization. The subject remains a living character with continuous anatomy, not a physical doll with joints, porcelain shell, glass skin, or toy materials. In prompt text, qualify the inspiration as facial design and immediately pair it with natural skin.
+- Use premium animated-feature-film character design: anatomically grounded three-dimensional structure, idealized anime-influenced facial proportions, refined facial contours, and expressive living features.
+- Describe a living character with continuous anatomy and natural skin response. Avoid physical doll joints, porcelain or glass-like skin, and toy materials. Keep facial refinement grounded in bone structure, soft tissue, and natural expression.
 - Keep mature natural proportions for adults. Eyes have believable volume, detailed irises, and natural corneal reflections; expressiveness comes from design, not flat oversized anime eyes.
 - Describe soft natural skin with subtle subsurface scattering, restrained microtexture and roughness variation, and gentle light transitions. Keep skin refined without waxy smoothing, plastic highlights, or documentary-style random facial defects.
 - Use individually groomed hair strands organized into designed locks and a clear hairstyle silhouette.
@@ -24,14 +24,14 @@ Read this file with the selected workflow for character design, reference sheets
 
 Example finish clause, to adapt rather than paste mechanically:
 
-> a premium semi-realistic 3D animated-film character, anatomically grounded with idealized anime-influenced facial proportions and high-end BJD-inspired facial sculpting, natural skin with subtle subsurface scattering, expressive volumetric eyes, individually groomed hair strands, physically believable costume materials
+> a premium semi-realistic 3D animated-film character, anatomically grounded with idealized anime-influenced facial proportions and refined natural facial contours, living skin with subtle subsurface scattering, expressive volumetric eyes, individually groomed hair strands, physically believable costume materials
 
 ## Environments: cinematic realistic 3DCG
 
 - Use full-scale cinematic 3D environments with plausible construction, true object scale, material thickness, and layered spatial depth.
 - Describe PBR-like material behavior through visible evidence: stone edge wear, timber grain, variable roughness, restrained metallic reflections, translucent foliage, or water response as relevant. Allow natural irregularity, repairs, weathering, and traces of use.
 - Keep art-directed composition, architectural rhythm, visual paths, and color organization. Aim for an animated-feature-film environment or high-end game cutscene rather than an uncomposed documentary photograph.
-- Keep BJD and skin terminology local to characters. Architecture, vegetation, and props retain their own physical materials instead of becoming dollhouse, plastic, ceramic, or anime-painted scenery.
+- Keep skin terminology local to characters. Architecture, vegetation, and props retain their own physical materials instead of becoming dollhouse, plastic, ceramic, or anime-painted scenery.
 
 Example finish clause:
 

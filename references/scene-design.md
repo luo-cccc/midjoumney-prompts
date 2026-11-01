@@ -35,7 +35,7 @@ When a character appears, use the shared idealized semi-realistic 3DCG character
 
 Include a concise integration clause: a common light direction and color temperature, environmental bounce on skin and clothing, contact shadows at actual contact points, consistent scale and camera perspective, coherent depth of field, and shared exposure and color grading. Adapt these to the scene's actual conditions and visible character scale.
 
-For an explicitly requested painting or named medium, use the shared alternative-medium rules instead of the CG clauses. Do not append cinematic-render or BJD language to a wholly painted scene. An explicit request to match an attached image's medium takes priority over defaults.
+For an explicitly requested painting or named medium, use the shared alternative-medium rules instead of the CG clauses. Do not append cinematic-render or CG skin-shading language to a wholly painted scene. An explicit request to match an attached image's medium takes priority over defaults.
 
 Default CG parameters: `--ar 16:9 --raw --s 150`. Preserve a requested aspect ratio; never copy a portrait's ratio merely because it is attached.
 

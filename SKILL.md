@@ -5,7 +5,7 @@ description: Create and refine ready-to-use Midjourney prompts for original char
 
 # Midjourney Prompt Studio
 
-Turn the user's concept or reference image into a concise, copy-ready English Midjourney prompt while preserving explicit visual choices and identity details. Default new images to idealized semi-realistic 3DCG characters and cinematic realistic 3DCG environments in one coherent visual world.
+Turn the user's concept or reference image into a concise, copy-ready English Midjourney prompt while preserving explicit visual choices and identity details. Default character concepts to semi-realistic anime painting, reference sheets to painted game-character concept art with CG-like volume, and new scenes to cinematic realistic 3DCG environments.
 
 ## Select the workflow
 
