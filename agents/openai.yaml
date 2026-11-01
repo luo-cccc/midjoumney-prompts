@@ -1,6 +1,6 @@
 interface:
   display_name: "Midjourney 提示词助手"
-  short_description: "生成可直接使用的英文角色设计、角色设定图、场景与可控扩图提示词"
+  short_description: "统一3DCG人物与写实场景的英文提示词，支持角色设定图及保留原图风格的扩图"
   default_prompt: "Use $midjourney-prompts to turn this character or scene concept into a ready-to-use Midjourney prompt."
 policy:
   allow_implicit_invocation: true

@@ -17,7 +17,8 @@ Use this workflow when a user supplies an image and wants an English Midjourney 
 
 - Preserve the subject's identity, facial features, hairstyle, costume, pose, and existing details.
 - Continue the garment's structure, layers, material, colors, patterns, metal parts, and decoration consistently.
-- Match the original art style, palette, lighting, depth of field, lens distance, and perspective.
+- Match the original art style, palette, lighting, depth of field, lens distance, and perspective. The shared CG defaults do not convert an ink painting, photograph, or other supplied image to CG.
+- If the source already uses the unified CG system, preserve the idealized character and realistic environment separately, along with their shared light, color, perspective, and contact relationships. If the user also asks for restyling, separate that request from crop completion rather than silently changing the preserved area.
 - Preserve head size, shoulder width, body scale, and subject-to-frame ratio. Do not stretch or reshape the figure to fill the selection.
 - Treat the goal as naturally completing cut-off structures, not filling the whole canvas.
 - If the selection exceeds the needed extension, continue the environment, atmosphere, or background instead of adding more body.

@@ -27,15 +27,17 @@ Use this workflow when the user supplies a scene, environment, or location conce
 - Avoid cluttered composition without a clear focal point, muddy colors, flat lighting, warped architecture, inconsistent perspective, and generic stock-photo or mobile-game backdrops.
 - For readable signage, put the exact words in double quotation marks and add "with the words" or "written". Short Latin-alphabet words render most reliably. When no signage is requested, leave signs and lettering out of the description and put text, letters, and watermarks in `--no`.
 
-## Style
+## Style and integration
 
-Use the scene's explicit style request first. If the scene has no style request, carry forward a style explicitly chosen by the user for its character or world. Otherwise use game-CG. Accepting a workflow's default or attaching a character design image does not count as choosing its finish. Preserve the character's identity, palette, culture, and motifs across styles.
+Follow [visual-system.md](visual-system.md) for style priority and parameters. By default, use a cinematic realistic 3DCG environment with full-scale construction, material thickness, natural roughness and weathering, indirect illumination, and layered atmospheric depth. Use only the materials actually present. Keep cinematic art direction and the scene's time-of-day lighting rather than a reference sheet's studio lighting.
 
-- **Painterly.** For a painted, painterly, or anime-illustration request without another named medium, use high-quality semi-realistic anime environment painting with a refined painterly finish, believable material texture, readable light and shadow, and cinematic lighting. This includes explicitly matching a character design's painted look. Use `--ar 16:9 --raw --s 150` unless the user chose different style parameters.
-- **Other chosen style.** For a named medium such as ink wash or watercolor, describe that medium without adding game-CG or anime-painting wording. Keep previously confirmed `--raw` and `--s` values associated with it; if none exist, add neither. Use the scene's aspect ratio.
-- **Game-CG (default).** Use high-quality semi-realistic game-CG finish, crisp rendered forms, physically believable materials, detail on the materials actually present, volumetric atmosphere where appropriate, and soft contact shadows on supporting surfaces. Frame it as a cinematic still. Keep the scene's time-of-day lighting instead of the reference sheet's studio lighting. Favor full-scale architecture and natural material variation over toy-like dioramas, repetitive textures, and plastic surfaces. Use `--ar 16:9` without `--raw` or `--s` unless the user explicitly requests different values; optionally add `HUD` to `--no` if interface elements are a likely failure.
+When a character appears, use the shared idealized semi-realistic 3DCG character finish within that realistic environment. Preserve facial design and proportions rather than turning the character into a live-action actor; keep architecture and vegetation realistic rather than making them a dollhouse or anime-painted backdrop. Different stylization levels are intentional within the same CG medium.
 
-Use one finish unless the user requests a blend. The design, people, and composition rules apply to every style. Only the game-CG finish calls for a cinematic still.
+Include a concise integration clause: a common light direction and color temperature, environmental bounce on skin and clothing, contact shadows at actual contact points, consistent scale and camera perspective, coherent depth of field, and shared exposure and color grading. Adapt these to the scene's actual conditions and visible character scale.
+
+For an explicitly requested painting or named medium, use the shared alternative-medium rules instead of the CG clauses. Do not append cinematic-render or BJD language to a wholly painted scene. An explicit request to match an attached image's medium takes priority over defaults.
+
+Default CG parameters: `--ar 16:9 --raw --s 150`. Preserve a requested aspect ratio; never copy a portrait's ratio merely because it is attached.
 
 ## Notes to the user
 
@@ -43,7 +45,7 @@ After the prompt, add these short notes when they apply:
 
 - When the user's character appears in the scene: attach the character's image under "Attach to prompt" in the Imagine bar, generating it from the design prompt first if needed, and keep `--ar` in the prompt.
 - When parts of the character's costume were inferred: say which parts, and that a reference sheet would fix the full costume.
-- When a scene for a character or world designed in the painterly finish falls back to the game-CG style: say that the scene's finish differs from the character design's, and offer to rewrite it in the painterly style.
+- Only when creating a new image under the unified CG default, if an attached or previously accepted default image uses another medium and no style-match was requested: briefly explain that the new prompt retains identity but uses the CG medium, and that the reference may still influence the result. For revisions, retain the confirmed medium unless a change is requested. Do not issue a style-mismatch note merely because the CG character is more idealized than its environment.
 - When signage uses Chinese or another non-Latin script: warn that the text may come out wrong.
 
 ## Output

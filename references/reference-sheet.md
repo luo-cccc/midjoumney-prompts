@@ -29,9 +29,11 @@ Create a clean 16:9 landscape character reference sheet on a pure white backgrou
 
 - Keep the same body proportions, costume design, colors, and materials throughout.
 - Make visible material distinctions concrete, such as wool, knit, metal, leather, or glossy fabric.
-- Use a high-quality semi-realistic game-CG finish, refined skin and hair detail, even studio lighting, and subtle contact shadows on the floor.
+- For the default CG medium only, apply the character finish in [visual-system.md](visual-system.md): idealized semi-realistic animated-film 3DCG, refined facial sculpting with natural skin, groomed hair and physically believable costume materials. The BJD influence is facial design, not physical doll construction.
+- Use even studio lighting and subtle floor contact shadows to show the design clearly. Keep this presentation lighting out of later narrative scenes. An explicitly chosen medium such as watercolor or ink wash replaces the CG finish while retaining the sheet's layout and identity consistency.
+- If a half-body design leaves lower garments or footwear undefined, derive them conservatively from its role, colors and materials, keep them identical across views, and briefly tell the user which details were inferred.
 - Include only the specified character, shown alone and empty-handed. Put text, labels, logos, and watermarks in `--no`. Keep people out of `--no`, because it would also push against the character.
 
 ## Output
 
-Write a single English Midjourney prompt unless the user requests a different language or segmented prompts. Preserve the user's desired aspect ratio; default to `--ar 16:9` when none is given. Use layout percentages and view counts only as practical composition controls, not as image-generation guarantees.
+Write a single English Midjourney prompt unless the user requests a different language or segmented prompts. Default CG parameters are `--ar 16:9 --raw --s 150`; follow the shared parameter rules for other media and user choices. Preserve the user's desired aspect ratio. Use layout percentages and view counts only as practical composition controls, not as image-generation guarantees.
