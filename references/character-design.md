@@ -2,6 +2,8 @@
 
 Use this workflow when the user supplies a character concept and wants a Midjourney prompt. Generate an original design rather than copying a named artist's style.
 
+For direct GPT Image 2 minor-character sheets, reuse the design decisions below, then follow [gpt-image-sheet.md](gpt-image-sheet.md). The portrait composition, output format, and Midjourney parameters on this page do not apply to that sheet workflow.
+
 ## Design decisions
 
 - Derive hairstyle, hair color, facial features, costume, accessories, silhouette, and a coherent color palette from the character's identity and world.
@@ -29,4 +31,4 @@ Default anime-painting parameters:
 
 Use the shared parameter rules for alternative media and user-specified values.
 
-When the user supplies a reference image, preserve its character identity and requested art direction. When the user requests a revision, keep every other confirmed design detail unchanged.
+When the user supplies the target character's identity reference, preserve its character identity and requested art direction. A different character's style reference supplies only the assigned visual treatment. When the user requests a revision, keep every other confirmed design detail unchanged.

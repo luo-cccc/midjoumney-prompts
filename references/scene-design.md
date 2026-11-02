@@ -1,6 +1,6 @@
 # Scene Design
 
-Use this workflow when the user supplies a scene, environment, or location concept and wants a Midjourney prompt. Generate an original scene rather than copying a named artist's style or a location from an existing franchise. To extend a supplied image, use the outpainting workflow instead.
+Use this workflow for the first Midjourney scene base, revisions to its prompt before an image exists, or an explicitly requested Midjourney revision of an existing scene. Generate an original scene rather than copying a named artist's style or a location from an existing franchise. Once a scene image exists, subsequent consistency-preserving variations default to [gpt-image-scene.md](gpt-image-scene.md), unless the user specifies another engine. For a GPT Image 2 scene frame extension, follow that workflow's extension rules; Midjourney extensions and other crop-completion requests use [outpainting.md](outpainting.md).
 
 ## Design decisions
 
@@ -10,9 +10,16 @@ Use this workflow when the user supplies a scene, environment, or location conce
 - Give the image one clear focal point. Do not add random props, unrelated characters, or decorative clutter.
 - Choose a time of day, season, and weather that support the intended mood. Describe the light concretely, including its source, direction, and color, such as low warm sunlight from the left.
 
+## Initial base and later variations
+
+- Make the base easy to reuse: describe the main landmark, connections between buildings and paths, terrain, material palette, and camera placement clearly. Leave suitable open space if later character insertion is planned. Do not add extra views, grids, or mandatory approval images.
+- The actual scene image designated by the user becomes the structural source for later variations. Extract its visible spatial anchors when it is supplied; the first prompt describes design intentions, not proof that every intended detail appears in the result.
+- If the user requests both stages before the image exists, provide the MJ base prompt and clearly provisional GPT Image 2 variation prompts using known design intentions. Say that image-based matching requires the eventual base image rather than claiming to have inspected it.
+- For an explicitly requested MJ revision of an existing image, preserve its confirmed scene structure, camera, framing, people, signage, and actual medium unless the user changes them. The new-scene defaults below must not replace existing details. Change the requested state and its necessary effects on light, surfaces, reflections, or occlusion.
+
 ## People and characters
 
-- By default, show the place without people: describe the space as empty, and put `people` in `--no`.
+- For a new scene with no people requested, describe the space as empty and put `people` in `--no`. When revising an existing image, preserve its people unless removal is requested.
 - Add small background figures when they are central to the requested activity, such as a busy market or festival. A village or ferry crossing alone does not require extra residents or travelers. An explicit request for an empty scene takes precedence.
 - When the user's established character belongs in the scene, keep their confirmed design, state their position and scale in the frame, and keep the place as the main subject unless the user asks for a character-focused illustration.
 - When the scene shows parts of the character that the confirmed design does not cover, such as legs and footwear after a head-to-waist portrait, take them from the character's reference sheet if one exists. Otherwise infer them from the design's colors, materials, and role, and describe them briefly.
@@ -21,11 +28,11 @@ Use this workflow when the user supplies a scene, environment, or location conce
 
 ## Composition
 
-- Use a wide, eye-level establishing shot at full scale, with the focal point off center.
+- For a new base, default to a wide, eye-level establishing shot at full scale, with the focal point off center. Existing-image revisions preserve the source camera and composition unless a change is requested.
 - Build depth with a framing element in the foreground, the focal point in the midground, and layered silhouettes in the background. Use atmospheric haze to separate distances, and leading lines such as roads, rivers, or stairs to guide the eye to the focal point.
 - Show scale with familiar objects such as doors, stairs, lanterns, or windows.
 - Avoid cluttered composition without a clear focal point, muddy colors, flat lighting, warped architecture, inconsistent perspective, and generic stock-photo or mobile-game backdrops.
-- For readable signage, put the exact words in double quotation marks and add "with the words" or "written". Short Latin-alphabet words render most reliably. When no signage is requested, leave signs and lettering out of the description and put text, letters, and watermarks in `--no`.
+- For readable signage, put confirmed exact words in double quotation marks and add "with the words" or "written". Short Latin-alphabet words render most reliably. For a new scene with no signage requested, leave signs and lettering out of the description and put text, letters, and watermarks in `--no`. Existing-image revisions preserve established signs unless removal is requested; keep `text` and `letters` out of `--no` when retaining them, and do not invent wording that cannot be read or is not confirmed.
 
 ## Style and integration
 
@@ -37,7 +44,7 @@ Include a concise integration clause: a common light direction and color tempera
 
 For an explicitly requested painting or named medium, use the shared alternative-medium rules instead of the CG clauses. Do not append cinematic-render or CG skin-shading language to a wholly painted scene. An explicit request to match an attached image's medium takes priority over defaults.
 
-Default CG parameters: `--ar 16:9 --raw --s 150`. Preserve a requested aspect ratio; never copy a portrait's ratio merely because it is attached.
+Default CG parameters for a new base: `--ar 16:9 --raw --s 150`. A current aspect-ratio request takes priority; otherwise an existing-image revision inherits the scene source's frame. Never copy a character portrait's ratio merely because it is attached. Preserve confirmed style parameters under the shared rules.
 
 ## Notes to the user
 
@@ -52,6 +59,6 @@ After the prompt, add these short notes when they apply:
 
 Write one coherent English prompt covering location, focal point, foreground, midground, background, architecture or terrain, materials, time of day, weather, lighting, color palette, mood, framing, and camera treatment. Prevent the failures listed above by describing the wanted result, and put only exclusions that materially reduce likely failures in `--no`. Do not overstuff the prompt with synonymous quality words.
 
-Preserve the user's desired aspect ratio in place of 16:9. Keep `--ar` in the prompt even when an image is attached, because the Edit Model otherwise matches the first attached image's aspect ratio. In V8.2 the Edit Model replaced Character Reference and Omni Reference, so do not add `--cref` or `--oref`.
+For `--ar`, use the current requested ratio, otherwise the known scene-source ratio for an existing-image revision, otherwise 16:9 for a new base. Include the known ratio even when images are attached, so a character reference does not supply the scene frame. If a revision's source ratio is unavailable, say to retain that frame and leave its numeric flag unspecified rather than guessing 16:9. In V8.2 the Edit Model replaced Character Reference and Omni Reference, so do not add `--cref` or `--oref`.
 
 When the user supplies a reference image of the place, preserve its layout, landmarks, and requested art direction. When the scene belongs to a character or world already established in the conversation, match its palette, culture, and motifs. When the user requests a revision, keep every other confirmed scene detail unchanged.

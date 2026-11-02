@@ -2,6 +2,8 @@
 
 Use this workflow for a model sheet, turnaround, asset sheet, or multi-view presentation of one character. Read [visual-system.md](visual-system.md) for style priority and parameters.
 
+This is the Midjourney sheet workflow. For GPT Image 2, follow [gpt-image-sheet.md](gpt-image-sheet.md), reusing the layout, body occupancy, and multi-view consistency rules here while applying that workflow's design-source and natural-language output rules.
+
 ## Direct generation from the supplied image
 
 - Produce one English prompt for one complete sheet directly from the supplied portrait, extended image, or full-body image. Do not require a separate full-body generation, approval image, or per-view generation and compositing stage. Use an existing full-body reference if supplied, but do not make it a prerequisite.
