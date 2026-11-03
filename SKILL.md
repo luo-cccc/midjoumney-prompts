@@ -1,6 +1,6 @@
 ---
 name: midjourney-prompts
-description: Create and refine ready-to-use Midjourney prompts for characters, reference sheets, initial scene bases, and controlled outpainting. Create GPT Image 2 prompts for direct minor-character sheets with main-character style references and for consistent scene variations from existing base images. Use for prompt text, not image generation.
+description: Create and refine ready-to-use Midjourney prompts for characters, reference sheets, initial scene bases, and controlled outpainting. Create GPT Image 2 prompts for direct minor-character sheets and consistent scene variations. Use for repeated locations, viewpoint changes, and checking returned scene images to write focused correction prompts. Deliver prompt text, not image generation.
 ---
 
 # Midjourney Prompt Studio
@@ -13,11 +13,14 @@ Honor the user's explicitly requested engine and output first. For a new charact
 
 For character designs, reference sheets, and new scenes, read [references/visual-system.md](references/visual-system.md) for shared style selection, rendering language, and integration. Its parameter presets apply only to Midjourney. For existing-scene variations and outpainting, use the source image's actual style instead of applying new-image defaults.
 
+When editing an established scene, planning repeated views of a place, or checking returned scene images, also read [references/scene-continuity.md](references/scene-continuity.md). It covers source and state selection, optional location records, available reference/control evidence, and focused corrections. Use confirmed text provisionally when images are unavailable; do not report a visual check without seeing the images. Keep one-off prompt requests lightweight.
+
 - For a GPT Image 2 character reference sheet, including direct minor-character design from text with a main-character style reference, read [references/gpt-image-sheet.md](references/gpt-image-sheet.md). Reuse the linked character-design decisions and sheet layout, not their Midjourney syntax or portrait defaults.
 - For other character concepts such as a race, profession, archetype, or costume idea, read [references/character-design.md](references/character-design.md).
 - For a Midjourney character model sheet, turnaround, asset sheet, multiple consistent views, or head/body breakdown, read [references/reference-sheet.md](references/reference-sheet.md).
 - For GPT Image 2 variations of an existing scene image, including changes to time, weather, season, characters, props, or explicitly requested viewpoint and frame extensions, read [references/gpt-image-scene.md](references/gpt-image-scene.md). This is the default for existing-scene changes when no other engine is requested.
 - For the first scene base, a new environment, location, or background, revisions before a scene image exists, or explicitly requested Midjourney scene revisions, read [references/scene-design.md](references/scene-design.md).
+- For a scene result that drifted from its source, compare the available images with [references/scene-continuity.md](references/scene-continuity.md). Report relevant observed differences and write a focused correction using the selected engine's scene workflow when requested. If asked only to review, stop at the findings.
 - For extending a supplied image or completing cropped anatomy, costume, props, or background, read [references/outpainting.md](references/outpainting.md).
 - If the request spans modes, read each relevant reference and keep one consistent character design across all prompts.
 
@@ -29,6 +32,6 @@ For character designs, reference sheets, and new scenes, read [references/visual
 4. Infer missing design details only when they support the stated character or world. For sheets from the target character's own image, preserve visible proportion relationships and complete hidden anatomy conservatively. For direct concept sheets, design the new character from the text; another character's style reference is not its identity source. Follow the selected sheet workflow without requiring a separate portrait, approval image, or per-view generation. When a scene requires body parts outside an existing portrait, follow the scene workflow's costume-completion rules; outpainting follows its own crop limits.
 5. Assign references their requested roles: target identity, visual style, layout, or scene edit target. A main-character sheet used for style does not supply the new character's face, costume, or exclusive palette. A scene edit target supplies the established place's spatial structure and actual finish; a style-only image does not establish the same location. For new images, follow the shared visual system's style selection; attaching a character image alone does not request its medium. Preserve the original finish during scene edits and outpainting unless explicitly asked to restyle it.
 6. Put the finished prompt in a fenced code block so it is easy to copy. Add analysis or layout guidance only when requested by the workflow or by the user.
-7. Produce prompt text only. Do not generate an image unless the user separately asks for one.
+7. Deliver prompt text, reference notes, or review findings as requested. Do not generate an image unless the user separately asks for one. Describing a mask, structure guide, reference binding, or renderer does not configure or execute it.
 
 For Midjourney, use the parameters requested by its workflow and `--no` as described in rule 2. For GPT Image 2, translate composition and constraints into natural language and omit Midjourney parameters. Do not invent pixel dimensions, stylization values, API settings, or other unsupported parameters.

@@ -1,6 +1,6 @@
 # Scene Design
 
-Use this workflow for the first Midjourney scene base, revisions to its prompt before an image exists, or an explicitly requested Midjourney revision of an existing scene. Generate an original scene rather than copying a named artist's style or a location from an existing franchise. Once a scene image exists, subsequent consistency-preserving variations default to [gpt-image-scene.md](gpt-image-scene.md), unless the user specifies another engine. For a GPT Image 2 scene frame extension, follow that workflow's extension rules; Midjourney extensions and other crop-completion requests use [outpainting.md](outpainting.md).
+Use this workflow for the first Midjourney scene base, revisions to its prompt before an image exists, or an explicitly requested Midjourney revision of an existing scene. Generate an original scene rather than copying a named artist's style or a location from an existing franchise. For existing scenes, repeated viewpoints, or returned-image corrections, read [scene-continuity.md](scene-continuity.md) for source selection, reference evidence, and checks. Once a scene image exists, subsequent variations default to [gpt-image-scene.md](gpt-image-scene.md), unless the user specifies another engine. For GPT Image 2 frame extensions, use that workflow; Midjourney extensions and other crop-completion requests use [outpainting.md](outpainting.md).
 
 ## Design decisions
 
@@ -12,10 +12,10 @@ Use this workflow for the first Midjourney scene base, revisions to its prompt b
 
 ## Initial base and later variations
 
-- Make the base easy to reuse: describe the main landmark, connections between buildings and paths, terrain, material palette, and camera placement clearly. Leave suitable open space if later character insertion is planned. Do not add extra views, grids, or mandatory approval images.
-- The actual scene image designated by the user becomes the structural source for later variations. Extract its visible spatial anchors when it is supplied; the first prompt describes design intentions, not proof that every intended detail appears in the result.
-- If the user requests both stages before the image exists, provide the MJ base prompt and clearly provisional GPT Image 2 variation prompts using known design intentions. Say that image-based matching requires the eventual base image rather than claiming to have inspected it.
-- For an explicitly requested MJ revision of an existing image, preserve its confirmed scene structure, camera, framing, people, signage, and actual medium unless the user changes them. The new-scene defaults below must not replace existing details. Change the requested state and its necessary effects on light, surfaces, reflections, or occlusion.
+- Make the base easy to reuse: choose a few distinguishing structures, describe connections between buildings and paths, and establish terrain, materials, and camera placement. When later reuse is planned, make those anchors legible rather than hiding every connection behind atmosphere or foreground clutter. Leave suitable open space for planned character insertion; do not add extra views, grids, or mandatory approval images.
+- The scene image designated by the user becomes the visible structural source. Extract supported spatial anchors when it is supplied; the first prompt records design intentions, not proof that every intended detail appears. Keep a short location record under [scene-continuity.md](scene-continuity.md) only when repeated use or correction benefits from it.
+- If both stages are requested before an image exists, provide the MJ base prompt and provisional GPT Image 2 variation prompts from known design intentions. Explain that image-based matching awaits the eventual base.
+- For an explicitly requested MJ revision, preserve the selected scene's confirmed structure, camera, framing, people, signage, state, and medium except as changed by the request. A new camera view replaces fixed-view locks; follow the shared guidance for target-view evidence and inferred areas. For a returned-image correction, focus on the observed defect and the unaffected content to retain instead of redesigning the scene.
 
 ## People and characters
 
@@ -50,15 +50,16 @@ Default CG parameters for a new base: `--ar 16:9 --raw --s 150`. A current aspec
 
 After the prompt, add these short notes when they apply:
 
-- When the user's character appears in the scene: attach the character's image under "Attach to prompt" in the Imagine bar, generating it from the design prompt first if needed, and keep `--ar` in the prompt.
+- If a place reference is used, identify its role and any supplied scene-edit target. Recommend the appropriate supported image-input or editing mode when known; do not claim the reference is bound or an edit is configured. A style reference or seed alone does not establish the location's layout.
+- When the user's character appears in the scene: attach the identity image through the selected interface's supported image input, generating it from the design prompt first only if needed, and retain the known scene `--ar`. Do not guess version-specific reference flags.
 - When parts of the character's costume were inferred: say which parts, and that a reference sheet would fix the full costume.
 - Only when creating a new image under the unified CG default, if an attached or previously accepted default image uses another medium and no style-match was requested: briefly explain that the new prompt retains identity but uses the CG medium, and that the reference may still influence the result. For revisions, retain the confirmed medium unless a change is requested. Do not issue a style-mismatch note merely because the CG character is more idealized than its environment.
 - When signage uses Chinese or another non-Latin script: warn that the text may come out wrong.
 
 ## Output
 
-Write one coherent English prompt covering location, focal point, foreground, midground, background, architecture or terrain, materials, time of day, weather, lighting, color palette, mood, framing, and camera treatment. Prevent the failures listed above by describing the wanted result, and put only exclusions that materially reduce likely failures in `--no`. Do not overstuff the prompt with synonymous quality words.
+For a new base, write one coherent English prompt covering the place, focal point, foreground/midground/background, relevant structures and materials, state, lighting, mood, and camera treatment. For an existing-scene edit or correction, lead with the selected source and the specific change; include only the anchors, state, and output constraints needed to preserve continuity. Use positive descriptions and a short `--no` list only for material, correctly scoped exclusions; avoid synonymous quality tags.
 
 For `--ar`, use the current requested ratio, otherwise the known scene-source ratio for an existing-image revision, otherwise 16:9 for a new base. Include the known ratio even when images are attached, so a character reference does not supply the scene frame. If a revision's source ratio is unavailable, say to retain that frame and leave its numeric flag unspecified rather than guessing 16:9. In V8.2 the Edit Model replaced Character Reference and Omni Reference, so do not add `--cref` or `--oref`.
 
-When the user supplies a reference image of the place, preserve its layout, landmarks, and requested art direction. When the scene belongs to a character or world already established in the conversation, match its palette, culture, and motifs. When the user requests a revision, keep every other confirmed scene detail unchanged.
+When the user supplies a reference of the place, preserve its supported layout, landmarks, and requested art direction. When it belongs to an established character or world, match the confirmed palette, culture, and motifs. A revision changes only the requested design or state and its necessary effects on light, surfaces, reflections, or occlusion; keep unaffected details.

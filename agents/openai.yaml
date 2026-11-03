@@ -1,6 +1,6 @@
 interface:
   display_name: "Midjourney 提示词助手"
-  short_description: "MJ角色与场景底图提示词，支持GPT-image2角色设定图、场景一致性变更和扩图"
-  default_prompt: "Use $midjourney-prompts to draft Midjourney base-image prompts or GPT Image 2 character-sheet and scene-variation prompts."
+  short_description: "MJ角色与场景底图提示词，支持GPT-image2设定图、场景连续性、换机位和返图修正"
+  default_prompt: "Use $midjourney-prompts to draft character and scene prompts, plan consistent location edits and viewpoints, or compare supplied scene results and write focused correction prompts."
 policy:
   allow_implicit_invocation: true
