@@ -1,6 +1,6 @@
 ---
 name: midjourney-prompts
-description: Create and refine ready-to-use Midjourney prompts for characters, reference sheets, initial scene bases, and controlled outpainting, under one unified semi-realistic 3DCG visual system. Create GPT Image 2 prompts for direct minor-character sheets and consistent scene variations. Use for repeated locations, viewpoint changes, and checking returned scene images to write focused correction prompts. Deliver prompt text, not image generation.
+description: Create and refine ready-to-use Midjourney prompts for characters, reference sheets, initial scene bases, and controlled outpainting, under one unified semi-realistic 3DCG visual system. Create GPT Image 2 prompts for direct minor-character sheets and consistent scene variations. Use for repeated locations, viewpoint changes, two-stage production assets that run Midjourney before GPT Image 2, and checking returned scene images to write focused correction prompts. Deliver prompt text, not image generation.
 ---
 
 # Midjourney Prompt Studio
@@ -15,6 +15,7 @@ For character designs, reference sheets, and new scenes, read [references/visual
 
 When editing an established scene, planning repeated views of a place, or checking returned scene images, also read [references/scene-continuity.md](references/scene-continuity.md). It covers source and state selection, optional location records, available reference/control evidence, and focused corrections. Use confirmed text provisionally when images are unavailable; do not report a visual check without seeing the images. Keep one-off prompt requests lightweight.
 
+- For a reusable production asset built by running Midjourney first and GPT Image 2 second, read [references/asset-chain.md](references/asset-chain.md). It covers the two stages' separate jobs, the style base, structured asset images for characters, scenes, and props, and first-frame composition.
 - For a GPT Image 2 character reference sheet, including direct minor-character design from text with a main-character style reference, read [references/gpt-image-sheet.md](references/gpt-image-sheet.md). Reuse the linked character-design decisions and sheet layout, not their Midjourney syntax or portrait defaults.
 - For other character concepts such as a race, profession, archetype, or costume idea, read [references/character-design.md](references/character-design.md).
 - For a Midjourney character model sheet, turnaround, asset sheet, multiple consistent views, or head/body breakdown, read [references/reference-sheet.md](references/reference-sheet.md).

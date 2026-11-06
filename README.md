@@ -115,6 +115,7 @@ MJ参数是起始预设，不保证特定媒介或物理渲染效果。`--s` 取
 - `SKILL.md`：入口、工作流选择和通用输出规则。
 - `agents/openai.yaml`：界面名称、简介和调用示例。
 - `references/visual-system.md`：统一 3D CG 视觉体系、画风优先级、参数和人景融合规范。
+- `references/asset-chain.md`：MJ 画风基准接 GPT-image2 资产图的两段链、首帧合成。
 - `references/character-design.md`：角色设计。
 - `references/reference-sheet.md`：设定图组装规则和通用骨架。
 - `references/gpt-image-sheet.md`：非重要角色直出GPT-image2设定图、参考图分工与MJ逻辑转换。
