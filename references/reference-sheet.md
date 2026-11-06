@@ -4,9 +4,12 @@ Use this workflow for a model sheet, turnaround, asset sheet, or multi-view pres
 
 This is the Midjourney sheet workflow. For GPT Image 2, follow [gpt-image-sheet.md](gpt-image-sheet.md), reusing the layout, body occupancy, and multi-view consistency rules here while applying that workflow's design-source and natural-language output rules.
 
-## Direct generation from the supplied image
+Sheets reward fine facial, hair, and material detail, so `--hd` is worth offering on V8.1 or V8.2 when the user wants 2048px output. Mention it as an option rather than adding it by default.
+
+## Direct generation from the available design
 
 - Produce one English prompt for one complete sheet directly from the supplied portrait, extended image, or full-body image. Do not require a separate full-body generation, approval image, or per-view generation and compositing stage. Use an existing full-body reference if supplied, but do not make it a prerequisite.
+- When no image exists yet and the character's design is already confirmed in text, write the sheet from that confirmed design. Refer to the design itself rather than naming a supplied image, and note that no portrait has been rendered yet. Do not request a portrait first, and do not describe an attachment that does not exist.
 - Extract the character's identity, visible head-neck-shoulder relationships, upper-body shape, costume construction and palette. Preserve the visible build and requested stylization rather than imposing a universal head count, tall silhouette, adult age or slender body.
 - Complete unseen anatomy and costume conservatively, consistent with visible anatomy, established age, build and function. State briefly after the prompt what was inferred; do not claim exact recovery of hidden proportions. If exact measurements are requested but unsupported, explain the limitation without inventing them or automatically switching workflows.
 - Separate anatomy from costume: a high belt, armor edge, high-waisted garment, robe hem or long image canvas is not a measurement of anatomical waist position, leg length or body height. Use this clarification in the finished prompt only when relevant to the reference.
@@ -45,18 +48,22 @@ Do not transfer example-specific traits or materials to other characters. A sepa
 
 ## Default finish
 
-Use high-end semi-realistic game character concept art, digitally painted with convincing three-dimensional form and a refined CG-like finish. Use clearly modeled facial planes and softly blended natural tones, distinct hair locks with controlled highlights where appropriate, readable material structure, painterly surface detail and selectively sharp edges. Differentiate only materials present, with restrained material-specific highlights. Use neutral slightly cool studio illumination, coherent light-and-shadow separation and subtle ground contact shadows.
+Use the refined semi-realistic 3DCG character finish in [visual-system.md](visual-system.md): a next-generation character asset with sculptural three-dimensional form, clearly modeled facial planes, BJD-grade surface refinement with resin-like translucency over living skin, natural subsurface scattering and soft light transitions, volumetric eyes with detailed irises, distinct hair locks with controlled highlights, and physically believable costume materials. Differentiate only materials present, with restrained material-specific highlights.
 
-This is a painted finish with dimensional modeling, not a requirement for photorealistic 3D rendering or skin shaders. Do not append PBR or subsurface-scattering terms to this default. Explicit media such as ink wash, watercolor or pure 3DCG replace it according to the shared style rules. Preserve character proportions while changing presentation lighting or finish.
+A neutral three-view turnaround on white is the layout most likely to drift toward a figurine product shot, so carry the counter-guard into the prompt as a positive description rather than a negation: continuous unbroken anatomy, skin that flexes naturally at every joint, and stitching only where the garments are actually sewn. Keep `doll` and `seams` out of `--no`, since one cancels the intended refinement and the other cancels the garment seams the views must repeat.
+
+A reference sheet is a presentation render, so its white canvas uses neutral slightly cool studio illumination with coherent light-and-shadow separation and subtle ground contact shadows, rather than a scene's time-of-day lighting. Keep the character's own refinement and material behavior identical to the in-scene finish.
+
+Explicit media such as ink wash, watercolor or a painted concept-art finish replace this default according to the shared style rules; drop the PBR and subsurface-scattering terms when they do. Preserve character proportions while changing presentation lighting or finish.
 
 ## Assembly and output
 
-Use this order: reference identity and visible proportion anchor; conservative completion and any relevant costume/anatomy distinction; overall canvas; left occupancy and views; right portraits; character-specific face and costume; finish; parameters. Write the occupancy and intrinsic-proportion controls in the final prompt, not just in analysis. Avoid repeating anatomical assurances or lengthy decorative lists.
+Use this order: identity source and proportion anchor, whether an image or the confirmed design; conservative completion and any relevant costume/anatomy distinction; overall canvas; left occupancy and views; right portraits; character-specific face and costume; finish; parameters. Write the occupancy and intrinsic-proportion controls in the final prompt, not just in analysis. Avoid repeating anatomical assurances or lengthy decorative lists.
 
 The following is an assembly scaffold, not a prompt to paste unchanged. Replace bracketed fields from the current reference, omit inapplicable features, and deliver a complete copy-ready prompt without placeholders:
 
 ```text
-A professional character reference sheet of [character] in the supplied [portrait / extended image / full-body reference]. Preserve [identity, visible head-neck-shoulder relationships, build, costume and palette]. Complete unseen anatomy conservatively, consistent with the visible figure and established character design.
+A professional character reference sheet of [character], [from the supplied portrait / extended image / full-body reference, OR from the confirmed design when no image exists]. Preserve [identity, head-neck-shoulder relationships, build, costume and palette]. Complete unseen anatomy conservatively, consistent with the established character design.
 
 Pure white background, 16:9 landscape canvas: left 55% costume views, right 45% portraits.
 

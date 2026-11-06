@@ -32,6 +32,8 @@ Use the language requested by the user, otherwise the language of their request.
 
 The following scaffold shows the structure for a new character with a style attachment. Replace every bracketed field with the actual brief; omit absent inputs and irrelevant traits. For an existing target, replace the new-design language with identity-preservation instructions.
 
+When a promised style or identity reference was not actually attached, leave the reference clause out of the prompt so it stays self-contained and copy-ready, and say outside the prompt that the attachment is missing and style matching is still pending. This differs from a missing scene edit target, where [gpt-image-scene.md](gpt-image-scene.md) describes the pending source inside the prompt: a sheet can be generated from text alone, whereas an edit has nothing to act on without its target image.
+
 ```text
 生成一张完整的[目标角色]角色设定图。附件[实际编号或明确描述]中的重要角色设定图作为画风参考，借鉴其中的[实际观察到的媒介、造型风格、笔触、材质表现与光照]。本张图的角色身份、五官、体型、发型、服装和专属配色依据以下文字设计。
 

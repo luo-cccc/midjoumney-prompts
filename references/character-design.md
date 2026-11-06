@@ -17,15 +17,15 @@ For direct GPT Image 2 minor-character sheets, reuse the design decisions below,
 - Use a centered half-body portrait from head to waist, shown from the front or a slight three-quarter angle.
 - Show the complete head, hairstyle, accessories, both shoulders, and upper-body clothing.
 - Use a simple background that separates the character without competing for attention.
-- Default to high-quality semi-realistic anime painting with a refined painterly finish, expressive but accurately shaped eyes, layered painted hair detail, believable fabric texture, and cinematic lighting. Describe brushwork, painted light and material texture rather than 3D rendering or skin-shader terminology.
-- Keep mature facial proportions and grounded anatomy; avoid plastic or waxy skin, doll-like features, excessive smoothing, flat lighting, and generic low-detail game-model aesthetics. Use the CG character finish in [visual-system.md](visual-system.md) only when selected by the user or inherited from an explicitly chosen style.
+- Default to the refined semi-realistic 3DCG character finish in [visual-system.md](visual-system.md): sculptural form, art-directed proportions, BJD-grade surface refinement over living skin, volumetric eyes, groomed hair locks, and specific costume materials under cinematic lighting.
+- Keep mature facial proportions and grounded anatomy; avoid plastic or waxy skin, mechanical doll joints, excessive smoothing, flat lighting, and generic low-detail game-model aesthetics. An explicitly requested painting or named medium replaces this default under the shared style rules.
 - Do not turn the portrait into a full-body image unless the user asks for one.
 
 ## Output
 
 Write one coherent English prompt covering subject, identity, face, hair, costume, accessories, pose, framing, background, style, lighting, and camera treatment. Prevent the failures listed above by describing the wanted result, and put only exclusions that materially reduce likely failures in `--no`. Do not overstuff the prompt with synonymous quality words.
 
-Default anime-painting parameters:
+Default portrait parameters:
 
 `--ar 3:4 --raw --s 150`
 

@@ -1,17 +1,17 @@
 ---
 name: midjourney-prompts
-description: Create and refine ready-to-use Midjourney prompts for characters, reference sheets, initial scene bases, and controlled outpainting. Create GPT Image 2 prompts for direct minor-character sheets and consistent scene variations. Use for repeated locations, viewpoint changes, and checking returned scene images to write focused correction prompts. Deliver prompt text, not image generation.
+description: Create and refine ready-to-use Midjourney prompts for characters, reference sheets, initial scene bases, and controlled outpainting, under one unified semi-realistic 3DCG visual system. Create GPT Image 2 prompts for direct minor-character sheets and consistent scene variations. Use for repeated locations, viewpoint changes, and checking returned scene images to write focused correction prompts. Deliver prompt text, not image generation.
 ---
 
 # Midjourney Prompt Studio
 
-Turn the user's concept or reference image into a concise, copy-ready image prompt while preserving explicit visual choices and identity details. Use Midjourney by default, including the first scene base, with GPT Image 2 for direct minor-character sheets and subsequent scene variations from an established image. Default character portraits to semi-realistic anime painting, reference sheets to painted game-character concept art with CG-like volume, and new scenes to cinematic realistic 3DCG environments. An explicitly assigned style reference overrides the default finish; scene edits preserve the target image's actual finish.
+Turn the user's concept or reference image into a concise, copy-ready image prompt while preserving explicit visual choices and identity details. Use Midjourney by default, including the first scene base, with GPT Image 2 for direct minor-character sheets and subsequent scene variations from an established image. New characters, reference sheets, and scenes default to one unified semi-realistic 3DCG system: refined BJD-informed characters inside naturalistic next-generation environments, sharing one rendering base, lighting logic, material system, and cinematic grade. An explicitly assigned style reference or named medium overrides the default finish; scene edits preserve the target image's actual finish.
 
 ## Select the workflow
 
 Honor the user's explicitly requested engine and output first. For a new character explicitly described as minor or non-key, default to a GPT Image 2 reference-sheet prompt directly from the concept; do not infer importance from occupation, race, age, or appearance. An explicit portrait or Midjourney request overrides this default. New scene bases default to Midjourney; variations of an existing scene image default to GPT Image 2. Revising an unrendered scene prompt stays in the initial-design workflow.
 
-For character designs, reference sheets, and new scenes, read [references/visual-system.md](references/visual-system.md) for shared style selection, rendering language, and integration. Its parameter presets apply only to Midjourney. For existing-scene variations and outpainting, use the source image's actual style instead of applying new-image defaults.
+For character designs, reference sheets, and new scenes, read [references/visual-system.md](references/visual-system.md) for the unified 3DCG system, style selection, rendering language, parameters, and character/environment integration. Its parameter presets apply only to Midjourney. For existing-scene variations and outpainting, use the source image's actual style instead of applying new-image defaults.
 
 When editing an established scene, planning repeated views of a place, or checking returned scene images, also read [references/scene-continuity.md](references/scene-continuity.md). It covers source and state selection, optional location records, available reference/control evidence, and focused corrections. Use confirmed text provisionally when images are unavailable; do not report a visual check without seeing the images. Keep one-off prompt requests lightweight.
 
